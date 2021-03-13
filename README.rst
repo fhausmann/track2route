@@ -7,6 +7,7 @@ Getting started
 Download `track2route` with:
 
     git clone https://github.com/fhausmann/track2route.git
+
     cd track2route
 
 You can then install it either with pip (version >= 19.0):
