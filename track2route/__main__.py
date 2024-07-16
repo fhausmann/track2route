@@ -1,4 +1,5 @@
 """Main function."""
+
 import argparse
 import pathlib
 

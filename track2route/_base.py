@@ -1,4 +1,5 @@
 """Points and tracks used to convert to routes."""
+
 import math
 from typing import Any, Dict, Iterable, List, Optional
 
@@ -111,8 +112,8 @@ class Point:
             distance_a = self.distance_to_previous
             distance_b = self.distance_to_next
             cos_gamma = (
-                distance_a ** 2
-                + distance_b ** 2
+                distance_a**2
+                + distance_b**2
                 - self.previous_point.distance_to(self.next_point) ** 2
             )
             try:
