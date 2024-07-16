@@ -5,7 +5,7 @@ description = "Tool to convert GPX Track to a routeable GPXRoute."
 authors = ["Fabian Hausmann"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 geopy = "^2.1.0"
 gpxpy = "^1.4.2"
 sortedcontainers = "^2.3.0"
