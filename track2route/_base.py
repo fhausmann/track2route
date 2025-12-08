@@ -222,5 +222,33 @@ class Track:
         route = gpxpy.gpx.GPXRoute(**self.desc)
         if n_points > 0:
             self.remove_n(len(self) - n_points)
-        route.points = self.points
+        route.points = [convert_trackpoint_to_routepoint(x) for x in self.points]
         return route
+
+
+def convert_trackpoint_to_routepoint(
+    trackpoint: gpxpy.gpx.GPXTrackPoint,
+) -> gpxpy.gpx.GPXRoutePoint:
+    """Convert a trackpoint to a new RoutePoint.
+
+    Args:
+        trackpoint (gpxpy.gpx.GPXTrackPoint): Trackpoint to convert
+
+    Returns:
+        gpxpy.gpx.GPXRoutePoint: Converted Routepoint.
+    """
+    routepoint = gpxpy.gpx.GPXRoutePoint(
+        latitude=trackpoint.latitude,
+        longitude=trackpoint.longitude,
+        elevation=trackpoint.elevation,
+        time=trackpoint.time,
+        name=trackpoint.name,
+        description=trackpoint.description,
+        symbol=trackpoint.symbol,
+        type=trackpoint.type,
+        comment=trackpoint.comment,
+        horizontal_dilution=trackpoint.horizontal_dilution,
+        vertical_dilution=trackpoint.vertical_dilution,
+        position_dilution=trackpoint.position_dilution,
+    )
+    return routepoint

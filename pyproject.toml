@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "track2route"
-version = "0.1.0"
+version = "0.1.1"
 description = "Tool to convert GPX Track to a routeable GPXRoute."
 authors = ["Fabian Hausmann"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-geopy = "^2.1.0"
-gpxpy = "^1.4.2"
+geopy = "^2.4.1"
+gpxpy = "^1.6.2"
 sortedcontainers = "^2.3.0"
 sphinx = { version = "^8.2.3", optional = true}
-sphinx_rtd_theme = { version = "^3.0.2", optional = true}
+sphinx_rtd_theme = "^3.0.2"
 
 [tool.poetry.extras]
 docs = ["sphinx", "sphinx_rtd_theme", "rstcheck"]
@@ -19,13 +19,13 @@ docs = ["sphinx", "sphinx_rtd_theme", "rstcheck"]
 track2route = 'track2route.__main__:main'
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.10.1"
-ruff = "^0.5.2"
-rope = "^0.18.0"
-rstcheck = { version =  "^3.3.1", optional = true}
-importlib-metadata = "^3.7.2"
-pytest = "^8.2.2"
-pytest-cov = "^5.0.0"
+mypy = "^1.19.0"
+ruff = "^0.14.8"
+rope = "^1.14.0"
+rstcheck = "^6.2.5"
+importlib-metadata = "^8.7.0"
+pytest = "^9.0.2"
+pytest-cov = "^7.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
