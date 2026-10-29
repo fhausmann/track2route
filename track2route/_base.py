@@ -1,7 +1,8 @@
 """Points and tracks used to convert to routes."""
 
 import math
-from typing import Any, Dict, Iterable, List, Optional
+from collections.abc import Iterable
+from typing import Any
 
 import gpxpy
 import sortedcontainers
@@ -18,8 +19,8 @@ class Point:
     def __init__(
         self,
         point: gpxpy.gpx.GPXTrackPoint,
-        next_point: Optional["Point"] = None,
-        previous_point: Optional["Point"] = None,
+        next_point: "Point | None" = None,
+        previous_point: "Point | None" = None,
     ):
         """Create GPX point.
 
@@ -33,7 +34,7 @@ class Point:
         self._next_point = next_point
         self._angle = float("nan")
 
-    def distance_to(self, other: Optional["Point"]) -> float:
+    def distance_to(self, other: "Point | None") -> float:
         """Calculate distance to other Point instance.
 
         Args:
@@ -54,7 +55,7 @@ class Point:
         )
 
     @property
-    def next_point(self) -> Optional["Point"]:
+    def next_point(self) -> "Point | None":
         """Next point in the track.
 
         Returns:
@@ -68,7 +69,7 @@ class Point:
         self._next_point = new_point
 
     @property
-    def previous_point(self) -> Optional["Point"]:
+    def previous_point(self) -> "Point | None":
         """Previous point in the track.
 
         Returns:
@@ -134,7 +135,7 @@ class Track:
     """Track which can be converted to a route."""
 
     start_point: Point
-    desc: Dict[str, Any]
+    desc: dict[str, Any]
 
     def __init__(self, points: Iterable[Point], **kwargs):
         """Store points and sort them by angle
@@ -172,14 +173,14 @@ class Track:
             self.remove()
 
     @property
-    def points(self) -> List[gpxpy.gpx.GPXTrackPoint]:
+    def points(self) -> list[gpxpy.gpx.GPXTrackPoint]:
         """Points in correct order.
 
         Retursns:
             List[gpxpy.gpx.GPXTrackPoint]: List of points in track order.
         """
         points = []
-        point: Optional[Point] = self.start_point
+        point: Point | None = self.start_point
         while point is not None:
             points.append(point.point)
             point = point.next_point

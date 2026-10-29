@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "track2route"
-version = "0.1.1"
+version = "0.1.2"
 description = "Tool to convert GPX Track to a routeable GPXRoute."
 authors = ["Fabian Hausmann"]
 
