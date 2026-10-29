@@ -5,12 +5,12 @@ description = "Tool to convert GPX Track to a routeable GPXRoute."
 authors = ["Fabian Hausmann"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.13"
 geopy = "^2.4.1"
 gpxpy = "^1.6.2"
 sortedcontainers = "^2.3.0"
-sphinx = { version = "^8.2.3", optional = true}
-sphinx_rtd_theme = "^3.0.2"
+sphinx = {version = "^9.2.0", optional = true}
+sphinx_rtd_theme = {version = "^3.1.0", optional = true}
 
 [tool.poetry.extras]
 docs = ["sphinx", "sphinx_rtd_theme", "rstcheck"]
